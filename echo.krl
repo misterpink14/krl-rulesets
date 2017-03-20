@@ -27,7 +27,7 @@ Rule named message that responds to a echo:message event with an attribute input
     rule message {
         select when echo message
         pre{
-            in = event:attr("input").klog("our passed in name: ")
+            in = event:attr("input")
         }
         send_directive("say") with
             something = in
