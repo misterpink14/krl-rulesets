@@ -1,6 +1,6 @@
 ruleset track_trips {
     meta {
-        name "Echo"
+        name "Track Trips"
         description <<
 Rule called process_trip that responds to the echo:message event with an attribute mileage. This rule should return a directive named trip with the option trip_length set to the value of the mileage attribute.
 >>
