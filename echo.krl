@@ -8,17 +8,29 @@ Rule named message that responds to a echo:message event with an attribute input
 >>
         author "Ben Thompson"
         logging on
-        shares echo, __testing
+        shares __testing
     }
 
     global {
-
+        __testing = {
+            "events": [ { "domain": "echo", "type": "hello" },
+                        { "domain": "echo", "type": "message", "attrs": [ "input" ] } ]
+        }
     }
 
     rule hello {
         select when echo hello
         send_directive("say") with
             something = "Hello World"
+    }
+
+    rule message {
+        select when echo message
+        pre{
+            in = event:attr("input").klog("our passed in name: ")
+        }
+        send_directive("say") with
+            something = in
     }
 
 }
