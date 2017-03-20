@@ -1,4 +1,4 @@
-ruleset track_trips {
+ruleset car_trips {
     meta {
         name "Car Trips"
         description <<
