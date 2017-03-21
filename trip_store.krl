@@ -24,7 +24,7 @@ A rule named clear_trips that looks for a car:trip_reset event and resets both o
             mileage = event:attr("mileage")
         }
         fired {
-            ent:trips{[idx, "mileage"]} := mileage
+            ent:trips{[idx, "mileage"]} := mileage;
             ent:trips{[idx, "timestamp"]} := timestamp
             idx = idx + 1
         }
@@ -36,7 +36,7 @@ A rule named clear_trips that looks for a car:trip_reset event and resets both o
             mileage = event:attr("mileage")
         }
         fired {
-            ent:long_trips{[idxl, "mileage"]} := mileage
+            ent:long_trips{[idxl, "mileage"]} := mileage;
             ent:long_trips{[idxl, "timestamp"]} := timestamp
             idxl = idxl + 1
         }
