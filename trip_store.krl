@@ -14,8 +14,20 @@ A rule named clear_trips that looks for a car:trip_reset event and resets both o
     }
 
     global {
-        idx = "0"
-        idxl = "0"
+        idx = 0
+        idxl = 0
+
+        trips = function () {
+            ent:trips
+        }
+
+        long_trips = function () {
+            ent:long_trips
+        }
+
+        short_trips = function () {
+            ent:trips
+        }
     }
 
     rule collect_trips {
@@ -38,18 +50,17 @@ A rule named clear_trips that looks for a car:trip_reset event and resets both o
         fired {
             ent:long_trips{[idxl, "mileage"]} := mileage;
             ent:long_trips{[idxl, "timestamp"]} := timestamp;
-            idxl = idxl.as("Number") + 1;
-            idxl = idxl.as("Number")
+            idxl = idxl + 1
         }
     }
 
     rule clear_trips {
         select when car trip_reset
         always {
-            idx = "0";
-            idxl = "0";
-            ent:trips = {};
-            ent:long_trips = {}
+            idx = 0;
+            idxl = 0;
+            ent:trips := {};
+            ent:long_trips := {}
         }
     }
 
