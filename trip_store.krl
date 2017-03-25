@@ -10,7 +10,7 @@ A rule named clear_trips that looks for a car:trip_reset event and resets both o
 >>
         author "Ben Thompson"
         logging on
-        shares __testing
+        shares trips, long_trips, short_trips
     }
 
     global {
