@@ -6,16 +6,21 @@ Manages a fleet of vehicle picos
 >>
         author "Ben Thompson"
         logging on
+        shares __testing
     }
 
     global {
         vehicle_id = 0
+
+        __testing = {
+            "events": { "domain": "car", "type": "new_vehicle" }
+        }
     }
 
     rule create_vehicle {
         select when car new_vehicle
         pre {
-            vehicle_id = vehicle_id + 1;
+            vehicle_id = vehicle_id + 1
             vehicle_name = "vehicle" + vehicle_id.as("String")
         }
         fired {
