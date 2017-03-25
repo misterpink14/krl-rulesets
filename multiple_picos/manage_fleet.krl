@@ -19,8 +19,7 @@ Manages a fleet of vehicle picos
         }
         fired {
             raise pico event "new_child_request"
-                attributes { "dname": vehicle_id.as("String"), "color": "#FF69B4" }
+                attributes { "dname": "vehicle" + vehicle_id.as("String"), "color": "#FF69B4" }
         }
     }
-
 }
